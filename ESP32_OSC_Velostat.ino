@@ -14,8 +14,8 @@
 #include <OSCMessage.h>
 
 //WIFI Settings
-char ssid[] = "paloma"; //network SSID (name)
-char pass[] = "humanTK1971";    //password
+char ssid[] = "*******"; //network SSID (name)
+char pass[] = "*******";    //password
 
 WiFiUDP Udp;                                // A UDP instance to let us send and receive packets over UDP
 const IPAddress outIp(192, 168, 0, 6);     // remote IP of your computer
