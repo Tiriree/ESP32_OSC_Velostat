@@ -24,7 +24,7 @@ Set up Arduino IDE board manager [download](https://github.com/espressif/arduino
 
 Once installed, use the Adafruit ESP32 Feather board in the dropdown
 
-For Upload speed 921600 baud works great.
+For Upload speed, 921600 baud works great.
 
 [OSC example](https://github.com/lwoodbury/Huzzah32OSC)
 
