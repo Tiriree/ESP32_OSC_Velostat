@@ -9,9 +9,12 @@ Using Adafruit Huzzah32 [Adafruit Overview](https://learn.adafruit.com/adafruit-
 
 Set up Arduino IDE board manager [download](https://github.com/espressif/arduino-esp32/blob/master/docs/arduino-ide/boards_manager.md)
 
-    Install the current upstream Arduino IDE at the 1.8 level or later. The current version is at the [Arduino website](https://www.arduino.cc/en/main/software).
+    Install the current upstream Arduino IDE at the 1.8 level or later. The current version is at the Arduino website.
+    
     Start Arduino and open Preferences window.
+    
     Enter https://dl.espressif.com/dl/package_esp32_index.json into Additional Board Manager URLs field. You can add multiple     URLs, separating them with commas.
+    
     Open Boards Manager from Tools > Board menu and install esp32 platform (and don't forget to select your ESP32 board from       Tools > Board menu after installation).
           
 
