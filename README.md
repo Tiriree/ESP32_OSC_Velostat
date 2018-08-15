@@ -1,7 +1,7 @@
 # ESP32_OSC_Velostat
 ESP32 Arduino communicates sensor data over OSC 
 
-For Mimi Anemone Floor sensor 
+For Mimi Yin's Anemone Floor sensor 
 
 [Set up Arduino IDE board manager](https://github.com/espressif/arduino-esp32/blob/master/docs/arduino-ide/boards_manager.md)
 
@@ -14,4 +14,4 @@ For Mimi Anemone Floor sensor
 [OSC example](https://github.com/lwoodbury/Huzzah32OSC)
 
 
-special thanks to [Sebastian Morales](https://github.com/sebmorales/ESP32_OSC_Sensors)
+Special thanks to [Sebastian Morales](https://github.com/sebmorales/ESP32_OSC_Sensors)
