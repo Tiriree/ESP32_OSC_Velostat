@@ -13,9 +13,9 @@ Set up Arduino IDE board manager [download](https://github.com/espressif/arduino
     
     Start Arduino and open Preferences window.
     
-    Enter https://dl.espressif.com/dl/package_esp32_index.json into Additional Board Manager URLs field. You can add multiple     URLs, separating them with commas.
+    Enter https://dl.espressif.com/dl/package_esp32_index.json into Additional Board Manager URLs field. You can add multiple URLs, separating them with commas.
     
-    Open Boards Manager from Tools > Board menu and install esp32 platform (and don't forget to select your ESP32 board from       Tools > Board menu after installation).
+    Open Boards Manager from Tools > Board menu and install esp32 platform (and don't forget to select your ESP32 board from Tools > Board menu after installation).
           
 
 [Download ESP32 driver](https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers)
