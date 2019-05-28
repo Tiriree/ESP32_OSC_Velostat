@@ -14,28 +14,54 @@
 #include <OSCMessage.h>
 
 //WIFI Settings
-char ssid[] = "*******"; //network SSID (name)
-char pass[] = "*******";    //password
+char ssid[] = "paloma"; //network SSID (name)
+char pass[] = "mkljlijlij";    //password
 
 WiFiUDP Udp;                                // A UDP instance to let us send and receive packets over UDP
-const IPAddress outIp(192, 168, 0, 6);     // remote IP of your computer
+const IPAddress outIp(192, 168, 0, 9);   // remote IP of your computer
 //const IPAddress outIp(192, 168, 0, 7);     // remote IP of your computer
 const unsigned int outPort = 8080;          // remote port to receive OSC
 const unsigned int localPort = 8000;        // local port to listen for OSC packets (actually not used for sending)
 
+//MUX pin
+//Hardware Hookup:
+//Mux Breakout ----------- Arduino
+//     S0 ------------------- 2
+//     S1 ------------------- 3
+//     S2 ------------------- 4
+//     Z -------------------- A2
+//    VCC ------------------- 5V
+//    GND ------------------- GND
+//    (VEE should be connected to GND)
+
+const int selectPins[3] = {12, 14, 15}; // S0~2, S1~3, S2~4
+const int zOutput = 5; 
+const int zInput = A2; // Connect common (Z) to A2 (analog input)
 
 long int now = 0;
 int interval = 250; //sending every 0.25sec
 
 int sensorPin= A0;  // select the input pin for the potentiometer
 int sensorValue = 0 ; // variable to store the value coming from the sensor
-int sensorPins[] = {A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11}; // don't forget to change this
+int sensorPins[] = {A3, A4, A7, A9}; // don't forget to change this // A7 = 32 , A9 = 33 //
+
+//array for values. This tells arduino to save 12 slots for values
+int sensorValues[12];
 
 void setup() {
   //Set Serial Communication
   Serial.begin(115200);
   // Connect to WiFi network
   initWifi();
+
+  //Mux
+   // Set up the select pins as outputs:
+  for (int i=0; i<3; i++)
+  {
+    pinMode(selectPins[i], OUTPUT);
+    digitalWrite(selectPins[i], HIGH);
+  }
+  pinMode(zInput, INPUT); // Set up Z as an input
 }
 
 void loop() {
