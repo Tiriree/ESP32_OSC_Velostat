@@ -1,7 +1,6 @@
 //////
 //  OSC Example for ESP32, By Luke Woodbury- 9th Jan 2018
 //  Tiri for Mimi Yin Anemone: OSC from velostat via wifi
-//  With help from Sebastian Morales 
 //////
 //  Set up Arduino IDE board manager https://github.com/espressif/arduino-esp32/blob/master/docs/arduino-ide/boards_manager.md
 //  Download ESP32 driver https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers
@@ -14,14 +13,17 @@
 #include <OSCMessage.h>
 
 //WIFI Settings
-char ssid[] = "paloma"; //network SSID (name)
-char pass[] = "mkljlijlij";    //password
+char ssid[] = "NETGEAR06"; //network SSID (name)
+char pass[] = "perfectcar816";    //password
 
 WiFiUDP Udp;                                // A UDP instance to let us send and receive packets over UDP
-const IPAddress outIp(192, 168, 0, 9);   // remote IP of your computer
+const IPAddress outIp(192, 168, 1, 4);   // remote IP of your computer
 //const IPAddress outIp(192, 168, 0, 7);     // remote IP of your computer
 const unsigned int outPort = 8080;          // remote port to receive OSC
 const unsigned int localPort = 8000;        // local port to listen for OSC packets (actually not used for sending)
+const int NUM = 12; //and this.. don't forget to change this number
+const int MUX = 8; // analog input board 
+const int HUZZAH = NUM - MUX; // huzzah input
 
 //MUX pin
 //Hardware Hookup:
@@ -74,7 +76,7 @@ void loop() {
 
 
 void sendOSC(char val[]) {
-  OSCMessage msg("/it_works");
+  OSCMessage msg("/floor");
   msg.add(val);
 
   Udp.beginPacket(outIp, outPort);
