@@ -6,6 +6,7 @@
 //  Download ESP32 driver https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers
 //  OSC library for Arduino https://github.com/tambien/oscuino
 //  read more on https://learn.adafruit.com/adafruit-huzzah32-esp32-feather/overview
+//  MUX https://learn.sparkfun.com/tutorials/multiplexer-breakout-hookup-guide
 
 //Wifi and OSC stuff
 #include <WiFi.h>
@@ -13,6 +14,7 @@
 #include <OSCMessage.h>
 
 //WIFI Settings
+
 char ssid[] = "NETGEAR06"; //network SSID (name)
 char pass[] = "perfectcar816";    //password
 
@@ -26,26 +28,27 @@ const int MUX = 8; // analog input board
 const int HUZZAH = NUM - MUX; // huzzah input
 
 //MUX pin
-//Hardware Hookup:
+//Hardware Hookup: READ CAREFULLY
 //Mux Breakout ----------- Arduino
-//     S0 ------------------- 2
-//     S1 ------------------- 3
-//     S2 ------------------- 4
+//     S0 ------------------- A12
+//     S1 ------------------- A6(pin14)
+//     S2 ------------------- A8(pin15)
 //     Z -------------------- A2
 //    VCC ------------------- 5V
 //    GND ------------------- GND
 //    (VEE should be connected to GND)
 
-const int selectPins[3] = {12, 14, 15}; // S0~2, S1~3, S2~4
+const int selectPins[3] = {A12, A6, A8}; // S0~A12, S1~A6(pin14), S2~A8(pin15)
 const int zOutput = 5; 
 const int zInput = A2; // Connect common (Z) to A2 (analog input)
 
 long int now = 0;
 int interval = 250; //sending every 0.25sec
 
+//READ CAREFULLY
 int sensorPin= A0;  // select the input pin for the potentiometer
 int sensorValue = 0 ; // variable to store the value coming from the sensor
-int sensorPins[] = {A3, A4, A7, A9}; // don't forget to change this // A7 = 32 , A9 = 33 //
+int sensorPins[] = {A3, A4, A7, A9}; // ch1~A3, ch2~A4, ch3~A7(pin32), ch4~A9(pin33)
 
 //array for values. This tells arduino to save 12 slots for values
 int sensorValues[12];
