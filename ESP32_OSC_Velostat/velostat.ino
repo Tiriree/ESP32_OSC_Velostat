@@ -3,8 +3,10 @@ void readVelostat() {
 
  //huzzah read
 //  int values[12]; //don't forget to change this
-  for (int i= 0; i < HUZZAH; i++) {  
-    sensorValues[i ] = analogRead(sensorPins[i]);
+  for (int i= 0; i < HUZZAH; i++) {
+      
+    sensorValues[i] = analogRead(sensorPins[i]);
+//    sensorValues[i] = analogRead(A3);
   }
 
   //Mux read

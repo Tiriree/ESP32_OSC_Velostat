@@ -30,7 +30,7 @@ const int HUZZAH = NUM - MUX; // huzzah input
 //MUX pin
 //Hardware Hookup: READ CAREFULLY
 //Mux Breakout ----------- Arduino
-//     S0 ------------------- A12
+//     S0 ------------------- A12(pin13)
 //     S1 ------------------- A6(pin14)
 //     S2 ------------------- A8(pin15)
 //     Z -------------------- A2
